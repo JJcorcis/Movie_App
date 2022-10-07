@@ -6,7 +6,7 @@ export const getMovieById = async (movieId, language = "es-MX") => {
     const url = `${Endpoint}/movie/${movieId}?api_key=${ApiKey}&language${language}`;
 
     const resp = await fetch(url);
-    const { results } = await resp.json();
+    const results = await resp.json();
 
     return results;
 }

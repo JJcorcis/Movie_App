@@ -1,13 +1,50 @@
-import React from 'react'
+import React from 'react';
+import { Link } from "react-router-dom";
 
-export const MovieCard = ({props}) => {
+export const MovieCard = (props) => {
 
-    const {title, name, overview, poster_path, media_type, vote_average} = props;
+  const {
+    id,
+    title,
+    name,
+    overview,
+    poster_path,
+    media_type,
+    vote_average
+  } = props;
+
+  const myTitle = name ? name : title;
+  const poster = `https://image.tmdb.org/t/p/original/${poster_path}`
 
   return (
     <>
-        <h1>{title}</h1>
-        <p>{overview}</p>
+      <div className="col">
+        <div className="card">
+          <div className="row no-gutters">
+            <div className="col-4">
+              <img
+                className="card-img"
+                src={poster}
+                alt={myTitle}
+              />
+            </div>
+            <div className="col-8">
+              <div className="card-body">
+                <h5 className="card-title">{myTitle}</h5>
+                <p className="card-text">{overview}</p>
+                <p className="card-text">
+                  <small className="text-muted">Rating: {vote_average}</small>
+                </p>
+                <Link
+                  to={`/movie/${id}`}
+                >
+                  ... See More
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

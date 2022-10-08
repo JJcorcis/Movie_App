@@ -1,5 +1,6 @@
 import config from "../config/config";
 
+
 export const getMovieById = async (movieId, language = "es-MX") => {
 
     const { ApiKey, Endpoint } = config;

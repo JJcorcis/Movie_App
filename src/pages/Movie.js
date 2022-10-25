@@ -5,8 +5,8 @@ import { MovieCard } from '../components/MovieCard';
 
 export const Movie = () => {
 
-  const {movieId} = useParams();
-  const {movie, isLoading} = useFetchMovieById(movieId);
+  const {movieId, media_type} = useParams();
+  const {movie, isLoading} = useFetchMovieById(movieId, media_type);
 
   console.log("Movie", movie);
 
